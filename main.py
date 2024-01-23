@@ -248,11 +248,11 @@ async def all_functions(message: types.Message):
                 await send_countries_func(message)
             elif message.text == cfg.CONTACT_US_BUTTON(lang):
                 await support_send_message_func(message)
+            else:
+                await message.answer(cfg.ERROR_COMMAND_TEXT(lang))
             if message.photo:
                 await send_photo_proof_func(message)
-    else:
-        await message.answer()
-    if message.chat.username == cfg.SUPPORT_GROUP[1:]:
+    elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
         match = re.search(r'\((.*?)\)', message.reply_to_message.text)
         if match:
             user_first_id = match.group(1)
