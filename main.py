@@ -229,16 +229,16 @@ async def select_language_1_text(message: types.Message):
 @dp.message_handler(content_types=['text', 'photo'])
 async def all_functions(message: types.Message):
     if message.chat.type == types.ChatType.PRIVATE:
-        if message.text == "/start":
-            await start_command(message)
         user_id = message.from_user.id
-        if(not db.check_user(user_id)):
+        if (not db.check_user(user_id)):
             await SELECTLANGUAGE.select_language_1.set()
             markup = btn.select_language_buttons()
             await message.answer(cfg.SELECT_LANGUAGE_TEXT, reply_markup=markup)
         else:
             lang = db.select_language(user_id)
-            if message.text == cfg.BUY_eSIM_BUTTON(lang):
+            if message.text == "/start":
+                await start_command(message)
+            elif message.text == cfg.BUY_eSIM_BUTTON(lang):
                 await buy_eSIM_command(message)
             elif message.text == cfg.ACTIVATE_BUTTON(lang):
                 await activate_for_orders_id_func(message)
