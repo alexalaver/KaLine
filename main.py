@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 bot = Bot(token=cfg.TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
-db = Data("144.76.2.154", "5432", "kaline", "kaline_user", "kaline1230")
+db = Data("192.168.1.22", "5432", "kaline", "kaline_user", "kaline1230")
 
 
 class SELECTLANGUAGE(StatesGroup):
@@ -250,7 +250,9 @@ async def all_functions(message: types.Message):
                 await support_send_message_func(message)
             if message.photo:
                 await send_photo_proof_func(message)
-    elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
+    else:
+        await message.answer()
+    if message.chat.username == cfg.SUPPORT_GROUP[1:]:
         match = re.search(r'\((.*?)\)', message.reply_to_message.text)
         if match:
             user_first_id = match.group(1)
@@ -336,7 +338,7 @@ async def support_send_message_1_func(message: types.Message, state: FSMContext)
         await message.answer(text=cfg.BACK_TEXT(lang), reply_markup=markup)
         await state.finish()
     else:
-        await bot.send_message(cfg.SUPPORT_GROUP, f"{cfg.USER_SEND_TASK_TEXT(user_id)}\n\n{message.text}", parse_mode=types.ParseMode.MARKDOWN)
+        await bot.send_message(cfg.SUPPORT_GROUP, f"{cfg.USER_SEND_TASK_TEXT(fnc.nick_with_link('Օգտատերը', user_id), user_id)}\n\n{message.text}", parse_mode=types.ParseMode.MARKDOWN)
         await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
         await state.finish()
 

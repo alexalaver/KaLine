@@ -190,8 +190,8 @@ def TAKE_TEXT_SUPPORT(lang):
     elif lang == "eng":
         return "Dear user, your message has been sent to moderators, please wait."
 
-def USER_SEND_TASK_TEXT(user_id):
-    return f"Օգտատերը({user_id}) հարց է ներկայացրել:"
+def USER_SEND_TASK_TEXT(user, user_id):
+    return f"{user}({user_id}) հարց է ներկայացրել:"
 
 def SUPPORT_RIGHT_TEXT(lang, text):
     if lang == "arm":
@@ -200,3 +200,12 @@ def SUPPORT_RIGHT_TEXT(lang, text):
         return f"Модератор ответил на ваше сообщение.\n\n{text}"
     elif lang == "eng":
         return f"The moderator has replied to your message.\n\n{text}"
+
+
+def ERROR_COMMAND_TEXT(lang):
+    if lang == "arm":
+        return "Այս հրամանը գոյություն չունի, խնդրում ենք մուտքագրել /start"
+    elif lang == "rus":
+        return "Данная команда не существует, пожалуйста введите /start."
+    elif lang == "eng":
+        return "This command does not exist, please enter /start"
