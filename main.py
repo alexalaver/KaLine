@@ -19,6 +19,7 @@ bot = Bot(token=cfg.TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
 db = Data("144.76.2.154", "5432", "kaline", "kaline_user", "kaline1230")
 
+
 class SELECTLANGUAGE(StatesGroup):
     select_language_1 = State()
 
