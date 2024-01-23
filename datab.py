@@ -35,3 +35,45 @@ class Data:
             self.cursor.execute("SELECT lang FROM users WHERE user_id=%s", (user_id,))
             a = self.cursor.fetchone()[0]
             return a
+
+    def select_orders_all_new(self):
+        with self.connect:
+            self.cursor.execute("SELECT orders_new FROM orders_all")
+            a = self.cursor.fetchone()[0]
+            if a is None:
+                return []
+            else:
+                return a
+
+    def select_orders_all_used(self):
+        with self.connect:
+            self.cursor.execute("SELECT orders_used FROM orders_all")
+            a = self.cursor.fetchone()[0]
+            if a is None:
+                return []
+            else:
+                return a
+
+    def update_orders_all_new(self, new):
+        with self.connect:
+            self.cursor.execute("UPDATE orders_all SET orders_new=%s", (new,))
+            self.connect.commit()
+
+    def update_orders_all_used(self, new):
+        with self.connect:
+            self.cursor.execute("UPDATE orders_all SET orders_used=%s", (new,))
+            self.connect.commit()
+
+    def select_orders_user(self, user_id):
+        with self.connect:
+            self.cursor.execute("SELECT orders FROM users WHERE user_id=%s", (user_id,))
+            a = self.cursor.fetchone()[0]
+            if a is None:
+                return []
+            else:
+                return a
+
+    def update_orders_user(self, user_id, new):
+        with self.connect:
+            self.cursor.execute("UPDATE users SET orders=%s WHERE user_id=%s", (new, user_id))
+            self.connect.commit()
