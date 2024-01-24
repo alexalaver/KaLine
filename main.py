@@ -376,7 +376,7 @@ async def check_balance_orders_1_state(message: types.Message, state: FSMContext
 
 #################################### SEND SUPPORT TEXT PROCESS
 
-@dp.message_handler(state=SUPPORTSENDMESSAGE.support_send_message_1)
+@dp.message_handler(state=SUPPORTSENDMESSAGE.support_send_message_1, content_types=["text", "photo"])
 async def support_send_message_1_func(message: types.Message, state: FSMContext):
     user_id = message.from_user.id
     lang = db.select_language(user_id)
@@ -391,7 +391,6 @@ async def support_send_message_1_func(message: types.Message, state: FSMContext)
             await state.finish()
         elif message.photo:
             if message.caption:
-                await message.answer("YES")
                 await bot.send_photo(cfg.SUPPORT_GROUP, caption=f"{cfg.USER_SEND_TASK_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}\n\n{message.text}", photo=message.photo[0], parse_mode=types.ParseMode.MARKDOWN)
                 await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
                 await state.finish()
