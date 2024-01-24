@@ -208,7 +208,8 @@ async def change_language_buttons_func(callback_query):
             await callback_query.message.delete()
             db.update_language_user(user_id, 'arm')
             lang = db.select_language(user_id)
-            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang))
+            markup = buttons.begins_button(lang)
+            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang), reply_markup=markup)
         else:
             await callback_query.answer(cfg.CHANGE_LANGUAGE_ERROR_TEXT(lang), show_alert=True)
     elif callback_query.data == "rus_lang_change":
@@ -216,7 +217,8 @@ async def change_language_buttons_func(callback_query):
             await callback_query.message.delete()
             db.update_language_user(user_id, 'rus')
             lang = db.select_language(user_id)
-            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang))
+            markup = buttons.begins_button(lang)
+            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang), reply_markup=markup)
         else:
             await callback_query.answer(cfg.CHANGE_LANGUAGE_ERROR_TEXT(lang), show_alert=True)
     elif callback_query.data == "eng_lang_change":
@@ -224,7 +226,8 @@ async def change_language_buttons_func(callback_query):
             await callback_query.message.delete()
             db.update_language_user(user_id, 'eng')
             lang = db.select_language(user_id)
-            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang))
+            markup = buttons.begins_button(lang)
+            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang), reply_markup=markup)
         else:
             await callback_query.answer(cfg.CHANGE_LANGUAGE_ERROR_TEXT(lang), show_alert=True)
 
