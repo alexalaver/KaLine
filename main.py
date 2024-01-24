@@ -391,6 +391,7 @@ async def support_send_message_1_func(message: types.Message, state: FSMContext)
             await state.finish()
         elif message.photo:
             if message.caption:
+                await message.answer("YES")
                 await bot.send_photo(cfg.SUPPORT_GROUP, caption=f"{cfg.USER_SEND_TASK_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}\n\n{message.text}", photo=message.photo[0], parse_mode=types.ParseMode.MARKDOWN)
                 await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
                 await state.finish()
