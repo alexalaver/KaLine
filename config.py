@@ -225,3 +225,11 @@ def CHANGE_LANGUAGE_ERROR_TEXT(lang):
         return "У вас уже выбран данный язык."
     elif lang == "eng":
         return "You have already selected this language."
+
+def SUPPORT_USER_TEXT_SEND_OR_PHOTO(lang):
+    if lang == "arm":
+        return "Հարգելի օգտատեր, դուք կարող եք ուղարկել միայն հարց, կամ լուսանկար։"
+    elif lang == "rus":
+        return "Уважаемый пользователь, вы можете отправить только вопрос или фотографию."
+    elif lang == "eng":
+        return "Dear user, you can only send a question or a photo."

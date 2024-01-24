@@ -294,7 +294,11 @@ async def all_functions(message: types.Message):
             else:
                 await message.answer(cfg.ERROR_COMMAND_TEXT(lang))
     elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
-        match = re.search(r'\((.*?)\)', message.reply_to_message.text)
+        match = None
+        if message.text:
+            match = re.search(r'\((.*?)\)', message.reply_to_message.text)
+        elif message.caption:
+            match = re.search(r'\((.*?)\)', message.reply_to_message.caption)
         if match:
             user_first_id = match.group(1)
         else:
@@ -381,9 +385,23 @@ async def support_send_message_1_func(message: types.Message, state: FSMContext)
         await message.answer(text=cfg.BACK_TEXT(lang), reply_markup=markup)
         await state.finish()
     else:
-        await bot.send_message(cfg.SUPPORT_GROUP, f"{cfg.USER_SEND_TASK_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}\n\n{message.text}", parse_mode=types.ParseMode.MARKDOWN)
-        await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
-        await state.finish()
+        if message.text:
+            await bot.send_message(cfg.SUPPORT_GROUP, f"{cfg.USER_SEND_TASK_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}\n\n{message.text}", parse_mode=types.ParseMode.MARKDOWN)
+            await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
+            await state.finish()
+        elif message.photo:
+            if message.caption:
+                await bot.send_photo(cfg.SUPPORT_GROUP, caption=f"{cfg.USER_SEND_TASK_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}\n\n{message.text}", photo=message.photo[0], parse_mode=types.ParseMode.MARKDOWN)
+                await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
+                await state.finish()
+            else:
+                await bot.send_photo(cfg.SUPPORT_GROUP, photo=message.photo[0], parse_mode=types.ParseMode.MARKDOWN)
+                await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
+                await state.finish()
+        else:
+            await message.answer(cfg.SUPPORT_USER_TEXT_SEND_OR_PHOTO(lang))
+
+
 
 #################################### SEND SUPPORT TEXT PROCESS
 
