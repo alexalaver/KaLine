@@ -13,11 +13,11 @@ def CANCEL_USER_ORDER(user):
 
 def CANCEL_USER_ORDER_TEXt(lang):
     if lang == "arm":
-        return "Հարգելի օգտատեր, ձեր պատվերը մերժված է, խնդրում ենք ուղարկեք ճիշտ անդորագիր կամ կապ հաստատեք մեզ հետ։"
+        return "Հարգելի՛ օգտատեր Ձեր պատվերը մերժված է: Խնդրում ենք ուղարկել ճիշտ անդորագիր կամ կապ հաստատել մեզ հետ։"
     elif lang == "rus":
-        pass
+        return "Уважаемый пользователь, ваш заказ отклонен. Пожалуйста, отправьте правильную квитанцию или свяжитесь с нами."
     elif lang == "eng":
-        pass
+        return "Dear user, your order is rejected. Please send the correct receipt or contact us."
 
 def CONFIRM_USER_ORDER(user):
     return f"Դուք հաջողությամբ հաստատել եք Orders ID փոխանցումը {user}:"
@@ -26,9 +26,9 @@ def RIGHT_SELECT_ARM_LANG(lang):
     if lang == "arm":
         return "Դուք հաջողությամբ ընտրել եք հայերենը։"
     elif lang == "rus":
-        pass
+        return "Вы успешно выбрали русский язык."
     elif lang == "eng":
-        pass
+        return "You have successfully selected English."
 
 def BUY_eSIM_BUTTON(lang):
     if lang == "arm":
@@ -36,7 +36,7 @@ def BUY_eSIM_BUTTON(lang):
     elif lang == "rus":
         return "Купить Global eSIM"
     elif lang == "eng":
-        pass
+        return "Buy Global eSIM"
 
 def CHECK_BALANCE_BUTTON(lang):
     if lang == "arm":
@@ -44,15 +44,15 @@ def CHECK_BALANCE_BUTTON(lang):
     elif lang == "rus":
         return "Проверить остаток МБ"
     elif lang == "eng":
-        pass
+        return "Check the balance"
 
-def HOW_TO_ACTIVATION_BUTTON(lang):
+def CHANGE_LANGUAGE_SETTINGS(lang):
     if lang == "arm":
-        return "Ինչպես ակտիվացնել"
+        return "Ընտրել լեզուն"
     elif lang == "rus":
-        return "Как активировать"
+        return "Выбрать язык"
     elif lang == "eng":
-        pass
+        return "Select language"
 
 def LIST_COUNTRIES_BUTTON(lang):
     if lang == "arm":
@@ -60,7 +60,7 @@ def LIST_COUNTRIES_BUTTON(lang):
     elif lang == "rus":
         return "Список стран"
     elif lang == "eng":
-        pass
+        return "List of countries"
 
 def CONTACT_US_BUTTON(lang):
     if lang == "arm":
@@ -68,31 +68,31 @@ def CONTACT_US_BUTTON(lang):
     elif lang == "rus":
         return "Связаться с нами"
     elif lang == "eng":
-        pass
+        return "Contact us"
 
 def ACTIVATE_BUTTON(lang):
     if lang == "arm":
-        return "Ակտիվացնել"
+        return "Ակտիվացնել eSIM"
     elif lang == "rus":
-        return "Активировать"
+        return "Активировать eSIM"
     elif lang == "eng":
-        pass
+        return "Activate the eSim"
 
 def ACTIVATE_TEXT_USER(lang):
     if lang == "arm":
-        return "Ակտիվացնելու համար խնդրում ենք մուտքագրել ձեր Order ID-ն: Ակտիվացնելու պահից eSIM-ն կաշխատի 15 օր: Ձեր Order ID-ն կարողեք ակտիվացնել 5 ամիս ժամկետում:"
+        return "Ակտիվացնելու համար խնդրում ենք մուտքագրել Ձեր Order ID-ն:"
     elif lang == "rus":
-        return "Пожалуйста, введите свой Order ID для активации. eSIM будет действительна в течение 15 дней после активации. Вы можете активировать свой идентификатор заказа в течение 5 месяцев."
+        return "Для активации пожалуйста введите ваш Order ID."
     elif lang == "eng":
-        pass
+        return "To activate please enter your Order ID."
 
 def CHECK_BALANCE_TEXT_USER(lang):
     if lang == "arm":
-        return "Ստուգելու համար խնդրում ենք մուտքագրել Order ID-ն:"
+        return "Ստուգելու համար խնդրում ենք մուտքագրել Ձեր Order ID-ն:"
     elif lang == "rus":
-        return "Введите пожалуйста Order ID, для проверки."
+        return "Для проверки введите пожалуйста ваш Order ID."
     elif lang == "eng":
-        pass
+        return "To check your balance please enter your Order ID."
 
 def CHECK_BALANCE_TEXT_ERROR(lang):
     if lang == "arm":
@@ -120,27 +120,27 @@ def BACK_BUTTON(lang):
 
 def START_BEGIN_TEXT(lang):
     if lang == "arm":
-        return "Մշտապես եղիր online ԿաԼայնի esimի հետ ամենամատչելի գնով ընդհամենը 3500 դրամ 3 GB համար:"
+        return "Ձեռք բեր KaLine-ի Global eSIM-ը վճարելով ընդհամենը 3500 դրամ 3 GB-ի համար և եղիր կապի մեջ աշխարհի ցանկացած կետում:"
     elif lang == "rus":
-        pass
+        return "Приобретите Global eSIM от KaLine, заплатив 3500 драмов за 3 ГБ, и оставайтесь на связи в любой точке мира."
     elif lang == "eng":
-        pass
+        return "Get KaLine's Global eSIM by paying AMD 3500 for 3 GB and stay connected anywhere in the world."
 
 def BUY_eSIM_TEXT(lang):
     if lang == "arm":
-        return "Պատվիրելու համար խնդրում ենք վճարել 3500 դրամ մեր էլեկտրոնային դրամապանակներից որևէ մեկին կամ բանկային քարտին և ուղարկեք անդորագիրը այստեղ Առանց անդորրագրի հաստատման գործարքը չի իրականացվի:\nԳնված esim ը ենթակա չե ետ վերադարձման Ստուգեք ձեր բջջային հեռախոսի esim ֆունկցիայի հասանելիությունը գնելուց առաջ"
+        return "Պատվիրելու համար խնդրում ենք կատարել վճարում փոխանցելով 3500 դրամ մեր էլեկտրոնային դրամապանակներից որևէ մեկին կամ բանկային քարտին և ուղարկել անդորագիրն այստեղ: Գործարքը չի իրականացվի առանց անդորրագրի:\n\nԷլեկտրոնային դրամապանակներ`\nIDram 094097722\nEasywallet\nTelcell\nԻնեկոընկեր 094097722\n\nԲանկային քարտեր`\nIDbank 4318290090169661\nAmeria 4083070010083702\n\nԽնդրում ենք ստուգել Ձեր բջջային հեռախոսի eSIM ֆունկցիայի առկայությունը այն գնելուց առաջ: Գնված eSIM-ը ենթակա չէ ետ վերադարձի:"
     elif lang == "rus":
-        pass
+        return "Для заказа совершите оплату, перечислив 3500 драмов РА на один из наших электронных кошельков или банковскую карту и отправьте квитанцию сюда. Без квитанции транзакция не будет обработана.\n\nЭлектронные кошельки\nIDram 094097722\nEasywallet\nTelcell\nInecomobile 094097722\n\nБанковские карты\nIDbank 4318290090169661\nАмерия 4083070010083702\n\nПожалуйста, проверьте функцию eSIM вашего телефона. мобильный телефон раньше купив его. Купленная eSIM возврату не подлежит."
     elif lang == "eng":
-        pass
+        return "To order, please make a payment by transferring AMD 3500 to one of our e-wallets or bank cards and send the receipt here. The transaction will not be processed without a receipt.\n\nE-wallets\nIDram 094097722\nEasywallet\nTelcell\nInecomobile 094097722\n\nBank cards\nIDbank 4318290090169661\nAmeria 4083070010083702\n\nPlease check the eSIM function of your mobile phone before purchasing it. Purchased eSIM is non-refundable."
 
-def CONFIRM_ORDERS_USER_TEXT(lang):
+def CONFIRM_ORDERS_USER_TEXT(lang, order_id):
     if lang == "arm":
-        return f"Հարգելի օգտատեր, ձեր վճարումը հաստատված է, ահա ձեր Order ID-ն: Մուտքագրեք այն “Ակտիվացնել” դաշտում, որպեսզի ստանաք համապատասխան կարգավորումները:"
+        return f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է \\`\n\n`{order_id}`"
     elif lang == "rus":
-        pass
+        return f"Уважаемый пользователь, ваш платеж подтвержден. Ваш Order ID:\n\n`{order_id}`"
     elif lang == "eng":
-        pass
+        return f"Dear user, your payment has been confirmed. Your Order ID is:\n\n`{order_id}`"
 
 def BACK_TEXT(lang):
     if lang == "arm":
@@ -160,35 +160,35 @@ def ERROR_ACTIVATE_CODE_USER_TEXT(lang):
 
 def ACTIVATION_RIGHT_TEXT(lang, activation_code, smdp_address):
     if lang == "arm":
-        return f"*Միացրեք eSIM-ը հետևյալ քայլերով*\n\nՍկանավորեք QR կոդը կամ ավելացրեք ինքներդ լրացնելով հետևյալը՝\n\n*SM-DP+ Address*\n`{smdp_address}`\n \n*Ակտիվացման կոդը*\n`{activation_code}`\n\neSIM-ի ակտիվանալուց հետո գտեք APN-ի կարգավորումները և մուտքագրեք APN դաշտում “wbdata”, որից հետո միացրեք “Data Roaming”-ը:\n\n*eSIM-ի ակտիվացումը կարող է տևել մինչև 15 րոպե:*"
+        return f"*Միացրեք eSIM-ը հետևյալ կերպ՝*\n\nՍկանավորեք QR կոդը կամ ավելացրեք ինքներդ լրացնելով հետևյալը՝\n\n*SM-DP+ Address*\n`{smdp_address}`\n \n*Ակտիվացման կոդը*\n`{activation_code}`\n\neSIM-ի ակտիվանալուց հետո գտեք APN-ի կարգավորումները և մուտքագրեք APN դաշտում “wbdata”, որից հետո միացրեք “Data Roaming”-ը:\n\n*eSIM-ի ակտիվացումը կարող է տևել մինչև 15 րոպե:*"
     elif lang == "rus":
         return f"*Включите eSIM, выполнив следующие действия*\nОтсканируйте QR-код или добавьте его самостоятельно, выполнив следующие действия:\n\n*Адрес SM-DP+*\n`{smdp_address}`\n\n*Код активации*\n`{activation_code}`\n\nПосле активации eSIM найдите настройки APN и введите «wbdata» в поле APN, затем включите «Роуминг данных».\n\n*Активация eSIM может занять до 15 минут.*"
     elif lang == "eng":
-        return f"*Enable eSIM with following steps*\nScan the QR code or add it manually by completing the following:\n\n*SM-DP+ Address*\n`{smdp_address}`\n\n*Activation Code:*\n`{activation_code}`\n\nAfter the eSIM is activated, find the APN settings and enter 'wbdata' in the APN field, then enable 'Data Roaming'.\n\n*eSIM activation may take up to 15 minutes.*"
+        return f"*Activate the eSIM as follows:*\nScan the QR code or add it manually by completing the following:\n\n*SM-DP+ Address*\n`{smdp_address}`\n\n*Activation Code:*\n`{activation_code}`\n\nAfter the eSIM is activated, find the APN settings and enter 'wbdata' in the APN field, then enable 'Data Roaming'.\n\n*eSIM activation may take up to 15 minutes.*"
 
 def SEND_PHOTO_TEXT(lang):
     if lang == "arm":
-        return "KaLine eSIM-երը աշխատում են հետևյալ երկրներում:"
+        return "KaLine eSIM-ը աշխատում է հետևյալ երկրներում:"
     elif lang == "rus":
-        pass
+        return "KaLine eSIM работает в данных странах."
     elif lang == "eng":
-        pass
+        return "KaLine eSIM works in the following countries."
 
 def SEND_TEXT_FOR_SUPPORT(lang):
     if lang == "arm":
-        return "Ուղղեք ձեր հարցը մեկ նամակում և մենք հնարավորինս արագ կպատասխանենք ձեր հարցին:"
+        return "Ուղղեք Ձեր հարցը մեկ նամակով և մենք հնարավորինս արագ կպատասխանենք:"
     elif lang == "rus":
-        return "Оставьте заявку в одном сообщении и мы свяжемся с вами как можно скорее."
+        return "Оставьте ваш вопрос в одном сообщении и мы свяжемся с вами как можно скорее."
     elif lang == "eng":
-        pass
+        return "Write your question in one message and we will answer as soon as possible."
 
 def TAKE_TEXT_SUPPORT(lang):
     if lang == "arm":
-        return "Հարգելի օգտատեր, Ձեր հաղորդագրությունն ուղարկվել է մոդերատորներին, խնդրում ենք սպասել:"
+        return "Հարգելի օգտատեր, մենք ստացել ենք Ձեր նամակը, խնդրում ենք սպասել:"
     elif lang == "rus":
-        return "Уважаемый пользователь, ваше сообщение отправлено модераторам, пожалуйста ожидайте."
+        return "Уважаемый пользователь, мы получили ваше сообщение, пожалуйста ожидайте."
     elif lang == "eng":
-        return "Dear user, your message has been sent to moderators, please wait."
+        return "Dear user, we have received your message, please wait."
 
 def USER_SEND_TASK_TEXT(user, user_id):
     return f"{user}({user_id}) հարց է ներկայացրել:"

@@ -158,8 +158,8 @@ async def buttons_accept_and_cancel_func(callback_query: types.CallbackQuery):
         db.update_orders_all_used(orders_all_used)
         db.update_orders_user(user_order_id, orders_user)
         await bot.edit_message_caption(chat_id=cfg.PROOF_CHANNEL_TG, message_id=message_id, caption=cfg.CONFIRM_USER_ORDER(fnc.nick_with_link("օգտվողին", user_order_id)), reply_markup=None, parse_mode=types.ParseMode.MARKDOWN)
-        await bot.send_message(chat_id=user_order_id, text=cfg.CONFIRM_ORDERS_USER_TEXT(lang))
-        await bot.send_message(chat_id=user_order_id, text=orders_id_for_user)
+        await bot.send_message(chat_id=user_order_id, text=cfg.CONFIRM_ORDERS_USER_TEXT(lang, orders_id_for_user))
+        # await bot.send_message(chat_id=user_order_id, text=orders_id_for_user)
 
 #################################### BUTTONS LOGIC ACCEPT AND CANCEL
 
@@ -248,10 +248,11 @@ async def all_functions(message: types.Message):
                 await send_countries_func(message)
             elif message.text == cfg.CONTACT_US_BUTTON(lang):
                 await support_send_message_func(message)
+            elif message.photo:
+                await send_photo_proof_func(message)
             else:
                 await message.answer(cfg.ERROR_COMMAND_TEXT(lang))
-            if message.photo:
-                await send_photo_proof_func(message)
+                await message.answer(f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է \\`\n\n`12323hsahdbas`")
     elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
         match = re.search(r'\((.*?)\)', message.reply_to_message.text)
         if match:
