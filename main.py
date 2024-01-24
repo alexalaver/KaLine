@@ -294,14 +294,9 @@ async def all_functions(message: types.Message):
             else:
                 await message.answer(cfg.ERROR_COMMAND_TEXT(lang))
     elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
-        match = None
-        photo_to_search = None
-        text_to_search = None
-        if message.reply_to_message:
-            text_to_search = message.reply_to_message.text if message.text else message.reply_to_message.caption
-            photo_to_search = message.reply_to_message.photo[0].file_id
-            if text_to_search:
-                match = re.search(r'\((.*?)\)', text_to_search)
+        text_to_search = message.reply_to_message.text if message.text else message.reply_to_message.caption
+        photo_to_search = message.reply_to_message.photo[0].file_id
+        match = re.search(r'\((.*?)\)', text_to_search)
         if match:
             user_first_id = match.group(1)
         else:
