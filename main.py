@@ -308,7 +308,7 @@ async def all_functions(message: types.Message):
             await bot.send_message(user_first_id, cfg.SUPPORT_RIGHT_TEXT(lang, message.text))
         elif message.photo:
             if message.caption:
-                await bot.send_photo(user_first_id, caption=cfg.SUPPORT_RIGHT_TEXT_PHOTO(lang, message.text), photo=message.photo[0].file_id)
+                await bot.send_photo(user_first_id, caption=cfg.SUPPORT_RIGHT_TEXT_PHOTO(lang, message.caption), photo=message.photo[0].file_id)
             else:
                 await bot.send_photo(user_first_id, caption=cfg.SUPPORT_RIGHT_PHOTO_SEND(lang), photo=message.photo[0].file_id)
 
