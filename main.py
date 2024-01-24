@@ -306,6 +306,7 @@ async def all_functions(message: types.Message):
             user_first_id = match.group(1)
         else:
             user_first_id = None
+        await message.answer(user_first_id)
         lang = db.select_language(user_first_id)
         if photo_to_search is None:
             await bot.send_message(user_first_id, cfg.SUPPORT_RIGHT_TEXT(lang, message.text))
