@@ -294,23 +294,23 @@ async def all_functions(message: types.Message):
             else:
                 await message.answer(cfg.ERROR_COMMAND_TEXT(lang))
     elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
-        text_to_search = message.reply_to_message.text if message.text else message.reply_to_message.caption
-        photo_to_search = message.reply_to_message.photo[0].file_id
-        match = re.search(r'\((.*?)\)', text_to_search)
+        match = None
+        if message.reply_to_message.text:
+            match = re.search(r'\((.*?)\)', message.reply_to_message.text)
+        elif message.reply_to_message.caption:
+            match = re.search(r'\((.*?)\)', message.reply_to_message.caption)
         if match:
             user_first_id = match.group(1)
         else:
             user_first_id = None
-        await bot.send_message(user_first_id, text_to_search)
-        await bot.send_message(user_first_id, user_first_id)
         lang = db.select_language(user_first_id)
-        if photo_to_search is None:
+        if message.text:
             await bot.send_message(user_first_id, cfg.SUPPORT_RIGHT_TEXT(lang, message.text))
-        else:
-            if text_to_search is None:
-                await bot.send_photo(user_first_id, photo=photo_to_search)
+        elif message.photo:
+            if message.caption:
+                await bot.send_photo(user_first_id, caption=cfg.SUPPORT_RIGHT_TEXT_PHOTO(lang, message.text), photo=message.photo[0].file_id)
             else:
-                await bot.send_photo(user_first_id, caption=cfg.SUPPORT_RIGHT_TEXT(lang, message.text), photo=photo_to_search)
+                await bot.send_photo(user_first_id, caption=cfg.SUPPORT_RIGHT_PHOTO_SEND(lang), photo=message.photo[0].file_id)
 
 #################################### ALL COMMANDS AND TEXTS
 

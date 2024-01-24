@@ -204,6 +204,21 @@ def SUPPORT_RIGHT_TEXT(lang, text):
     elif lang == "eng":
         return f"The moderator has replied to your message.\n\n{text}"
 
+def SUPPORT_RIGHT_TEXT_PHOTO(lang, text):
+    if lang == "arm":
+        return f"Մոդերատորը պատասխանել է ձեր հաղորդագրությանը և լուսանկար է ուղարկել։:\n\n{text}"
+    elif lang == "rus":
+        return f"Модератор ответил на ваше сообщение и отправил вам фотографию.\n\n{text}"
+    elif lang == "eng":
+        return f"The moderator has replied to your message and sent you a photo.\n\n{text}"
+
+def SUPPORT_RIGHT_PHOTO_SEND(lang):
+    if lang == "arm":
+        return "Մոդերատորը ձեզ լուսանկար է ուղարկել։"
+    elif lang == "rus":
+        return "Модератор отправил вам фотографию."
+    elif lang == "eng":
+        return "The moderator sent you a photo."
 
 def ERROR_COMMAND_TEXT(lang):
     if lang == "arm":
