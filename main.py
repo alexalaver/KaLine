@@ -404,7 +404,7 @@ async def support_send_message_1_func(message: types.Message, state: FSMContext)
                 await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
                 await state.finish()
             else:
-                await bot.send_photo(cfg.SUPPORT_GROUP, photo=message.photo[0].file_id, parse_mode=types.ParseMode.MARKDOWN)
+                await bot.send_photo(cfg.SUPPORT_GROUP, caption=f"{cfg.USER_SEND_TASK_PHOTO_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}", photo=message.photo[0].file_id, parse_mode=types.ParseMode.MARKDOWN)
                 await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
                 await state.finish()
         else:

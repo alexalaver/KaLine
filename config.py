@@ -193,6 +193,9 @@ def TAKE_TEXT_SUPPORT(lang):
 def USER_SEND_TASK_TEXT(user, user_id):
     return f"{user}({user_id}) հարց է ներկայացրել:"
 
+def USER_SEND_TASK_PHOTO_TEXT(user, user_id):
+    return f"{user}({user_id}) նկար է ներկայացրել:"
+
 def SUPPORT_RIGHT_TEXT(lang, text):
     if lang == "arm":
         return f"Մոդերատորը պատասխանել է ձեր հաղորդագրությանը:\n\n{text}"
