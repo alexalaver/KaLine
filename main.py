@@ -252,7 +252,7 @@ async def all_functions(message: types.Message):
                 await send_photo_proof_func(message)
             else:
                 await message.answer(cfg.ERROR_COMMAND_TEXT(lang))
-                await message.answer(f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է \\`\n\n`12323hsahdbas`")
+                await message.answer(f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է \\`\n\n`12323hsahdbas`", parse_mode=types.ParseMode.MARKDOWN)
     elif message.chat.username == cfg.SUPPORT_GROUP[1:]:
         match = re.search(r'\((.*?)\)', message.reply_to_message.text)
         if match:
