@@ -4,7 +4,7 @@ import config as cfg
 def begins_button(lang):
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     markup.add(cfg.BUY_eSIM_BUTTON(lang), cfg.ACTIVATE_BUTTON(lang), cfg.CHECK_BALANCE_BUTTON(lang),
-               cfg.HOW_TO_ACTIVATION_BUTTON(lang), cfg.LIST_COUNTRIES_BUTTON(lang), cfg.CONTACT_US_BUTTON(lang))
+               cfg.LIST_COUNTRIES_BUTTON(lang), cfg.CONTACT_US_BUTTON(lang), cfg.CHANGE_LANGUAGE_SETTINGS(lang))
     return markup
 
 def select_language_buttons():
