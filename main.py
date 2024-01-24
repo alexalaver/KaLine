@@ -243,7 +243,7 @@ async def select_language_1_func(callback_query: types.CallbackQuery, state: FSM
     elif callback_query.data == "rus_lang":
         lang = "rus"
     elif callback_query.data == "eng_lang":
-        lang = "eng
+        lang = "eng"
     if lang is not None:
         db.add_user(id, user_id, first_name, username, lang)
         await callback_query.message.delete()
