@@ -192,6 +192,44 @@ async def support_send_message_func(message):
 
 #################################### SUPPORT SEND MESSAGE FUNC
 
+#################################### CHANGE LANGUAGE FUNC
+
+async def change_language_func(message):
+    user_id = message.from_user.id
+    lang = db.select_language(user_id)
+    markup = buttons.change_language_buttons(lang)
+    await message.answer(cfg.CHANGE_LANGUAGE_TEXT(lang), reply_markup=markup)
+
+async def change_language_buttons_func(callback_query):
+    user_id = callback_query.from_user.id
+    lang = db.select_language(user_id)
+    if callback_query.data == "arm_lang_change":
+        if lang != "arm":
+            await callback_query.message.delete()
+            db.update_language_user(user_id, 'arm')
+            lang = db.select_language(user_id)
+            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang))
+        else:
+            await callback_query.answer(cfg.CHANGE_LANGUAGE_ERROR_TEXT(lang), show_alert=True)
+    elif callback_query.data == "rus_lang_change":
+        if lang != "rus":
+            await callback_query.message.delete()
+            db.update_language_user(user_id, 'rus')
+            lang = db.select_language(user_id)
+            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang))
+        else:
+            await callback_query.answer(cfg.CHANGE_LANGUAGE_ERROR_TEXT(lang), show_alert=True)
+    elif callback_query.data == "eng_lang_change":
+        if lang != "eng":
+            await callback_query.message.delete()
+            db.update_language_user(user_id, 'eng')
+            lang = db.select_language(user_id)
+            await callback_query.message.answer(cfg.RIGHT_SELECT_ARM_LANG(lang))
+        else:
+            await callback_query.answer(cfg.CHANGE_LANGUAGE_ERROR_TEXT(lang), show_alert=True)
+
+#################################### CHANGE LANGUAGE FUNC
+
 #################################### SELECT LANGUAGE BUTTONS
 @dp.callback_query_handler(state=SELECTLANGUAGE.select_language_1)
 async def select_language_1_func(callback_query: types.CallbackQuery, state: FSMContext):
@@ -203,11 +241,9 @@ async def select_language_1_func(callback_query: types.CallbackQuery, state: FSM
     if callback_query.data == "arm_lang":
         lang = "arm"
     elif callback_query.data == "rus_lang":
-        #lang = "rus"
-        pass
+        lang = "rus"
     elif callback_query.data == "eng_lang":
-        #lang = "eng
-        pass
+        lang = "eng
     if lang is not None:
         db.add_user(id, user_id, first_name, username, lang)
         await callback_query.message.delete()
@@ -248,6 +284,8 @@ async def all_functions(message: types.Message):
                 await send_countries_func(message)
             elif message.text == cfg.CONTACT_US_BUTTON(lang):
                 await support_send_message_func(message)
+            elif message.text == cfg.CHANGE_LANGUAGE_SETTINGS(lang):
+                await change_language_func(message)
             elif message.photo:
                 await send_photo_proof_func(message)
             else:
@@ -270,6 +308,8 @@ async def all_buttons(callback_query: types.CallbackQuery):
     accept_or_cancel = callback_query.data.split(":")
     if len(accept_or_cancel) == 2:
         await buttons_accept_and_cancel_func(callback_query)
+    elif callback_query.data == "arm_lang_change" or callback_query.data == "rus_lang_change" or callback_query.data == "eng_lang_change":
+        await change_language_buttons_func(callback_query)
 
 #################################### ALL BUTTONS
 
@@ -338,7 +378,7 @@ async def support_send_message_1_func(message: types.Message, state: FSMContext)
         await message.answer(text=cfg.BACK_TEXT(lang), reply_markup=markup)
         await state.finish()
     else:
-        await bot.send_message(cfg.SUPPORT_GROUP, f"{cfg.USER_SEND_TASK_TEXT(fnc.nick_with_link('Օգտատերը', user_id), user_id)}\n\n{message.text}", parse_mode=types.ParseMode.MARKDOWN)
+        await bot.send_message(cfg.SUPPORT_GROUP, f"{cfg.USER_SEND_TASK_TEXT(user=fnc.nick_with_link('Օգտատերը', user_id), user_id=user_id)}\n\n{message.text}", parse_mode=types.ParseMode.MARKDOWN)
         await message.answer(cfg.TAKE_TEXT_SUPPORT(lang), reply_markup=markup)
         await state.finish()
 

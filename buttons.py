@@ -26,3 +26,20 @@ def back_button(lang):
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     markup.add(cfg.BACK_BUTTON(lang))
     return markup
+
+def change_language_buttons(lang):
+    markup = types.InlineKeyboardMarkup(row_width=2)
+    btn1 = None
+    btn2 = None
+    btn3 = None
+    if lang == "arm":
+        btn2 = types.InlineKeyboardButton(text="Русский 🇷🇺", callback_data="rus_lang_change")
+        btn3 = types.InlineKeyboardButton(text="English 🏴󠁧󠁢󠁥󠁮󠁧󠁿", callback_data="eng_lang_change")
+    elif lang == "rus":
+        btn1 = types.InlineKeyboardButton(text="Հայերեն 🇦🇲", callback_data="arm_lang_change")
+        btn3 = types.InlineKeyboardButton(text="English 🏴󠁧󠁢󠁥󠁮󠁧󠁿", callback_data="eng_lang_change")
+    elif lang == "eng":
+        btn1 = types.InlineKeyboardButton(text="Հայերեն 🇦🇲", callback_data="arm_lang_change")
+        btn2 = types.InlineKeyboardButton(text="Русский 🇷🇺", callback_data="rus_lang_change")
+    markup.add(btn1, btn2, btn3)
+    return markup

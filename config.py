@@ -209,3 +209,19 @@ def ERROR_COMMAND_TEXT(lang):
         return "Данная команда не существует, пожалуйста введите /start."
     elif lang == "eng":
         return "This command does not exist, please enter /start"
+
+def CHANGE_LANGUAGE_TEXT(lang):
+    if lang == "arm":
+        return "Ընտրեք համապատասխան լեզուն:"
+    elif lang == "rus":
+        return "Выберите подходящий язык."
+    elif lang == "eng":
+        return "Select the appropriate language."
+
+def CHANGE_LANGUAGE_ERROR_TEXT(lang):
+    if lang == "arm":
+        return "Դուք արդեն ընտրել եք այս լեզուն:"
+    elif lang == "rus":
+        return "У вас уже выбран данный язык."
+    elif lang == "eng":
+        return "You have already selected this language."

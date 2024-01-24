@@ -77,3 +77,8 @@ class Data:
         with self.connect:
             self.cursor.execute("UPDATE users SET orders=%s WHERE user_id=%s", (new, user_id))
             self.connect.commit()
+
+    def update_language_user(self, user_id, lang):
+        with self.connect:
+            self.cursor.execute("UPDATE users SET lang=%s WHERE user_id=%s", (lang, user_id,))
+            self.connect.commit()
