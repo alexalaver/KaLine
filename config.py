@@ -136,7 +136,7 @@ def BUY_eSIM_TEXT(lang):
 
 def CONFIRM_ORDERS_USER_TEXT(lang, order_id):
     if lang == "arm":
-        return f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է \\`\n\n`{order_id}`"
+        return f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է `\n\n`{order_id}`"
     elif lang == "rus":
         return f"Уважаемый пользователь, ваш платеж подтвержден. Ваш Order ID:\n\n`{order_id}`"
     elif lang == "eng":
