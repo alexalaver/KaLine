@@ -128,19 +128,28 @@ def START_BEGIN_TEXT(lang):
 
 def BUY_eSIM_TEXT(lang):
     if lang == "arm":
-        return "Պատվիրելու համար խնդրում ենք կատարել վճարում փոխանցելով 3000 դրամ մեր էլեկտրոնային դրամապանակներից որևէ մեկին կամ բանկային քարտին և ուղարկել անդորագիրն այստեղ: Գործարքը չի իրականացվի առանց անդորրագրի:\n\nԷլեկտրոնային դրամապանակներ`\nIDram 094097722\nEasywallet\nTelcell\nԻնեկոընկեր 094097722\n\nԲանկային քարտեր`\nIDbank 4318290090169661\nAmeria 4083070010083702\n\nԽնդրում ենք ստուգել Ձեր բջջային հեռախոսի eSIM ֆունկցիայի առկայությունը այն գնելուց առաջ: Գնված eSIM-ը ենթակա չէ ետ վերադարձի:"
+        return "Պատվիրելու համար խնդրում ենք կատարել վճարում փոխանցելով 3000 դրամ մեր էլեկտրոնային դրամապանակներից որևէ մեկին կամ բանկային քարտին և ուղարկել անդորագիրն այստեղ: Գործարքը չի իրականացվի առանց անդորրագրի:\n\nԷլեկտրոնային դրամապանակներ`\nIDram 094097722\nԻնեկոընկեր 094097722\n\nԲանկային քարտեր`\nIDbank 4318290090169661\nAmeria 4083070010083702\n\nԽնդրում ենք ստուգել Ձեր բջջային հեռախոսի eSIM ֆունկցիայի առկայությունը այն գնելուց առաջ: Գնված eSIM-ը ենթակա չէ ետ վերադարձի:"
     elif lang == "rus":
-        return "Для заказа совершите оплату, перечислив 3000 драмов РА на один из наших электронных кошельков или банковскую карту и отправьте квитанцию сюда. Без квитанции транзакция не будет обработана.\n\nЭлектронные кошельки\nIDram 094097722\nEasywallet\nTelcell\nInecomobile 094097722\n\nБанковские карты\nIDbank 4318290090169661\nАмерия 4083070010083702\n\nПожалуйста, проверьте функцию eSIM вашего телефона. мобильный телефон раньше купив его. Купленная eSIM возврату не подлежит."
+        return "Для заказа совершите оплату, перечислив 3000 драмов РА на один из наших электронных кошельков или банковскую карту и отправьте квитанцию сюда. Без квитанции транзакция не будет обработана.\n\nЭлектронные кошельки\nIDram 094097722\nInecomobile 094097722\n\nБанковские карты\nIDbank 4318290090169661\nАмерия 4083070010083702\n\nПожалуйста, проверьте функцию eSIM вашего телефона. мобильный телефон раньше купив его. Купленная eSIM возврату не подлежит."
     elif lang == "eng":
-        return "To order, please make a payment by transferring AMD 3000 to one of our e-wallets or bank cards and send the receipt here. The transaction will not be processed without a receipt.\n\nE-wallets\nIDram 094097722\nEasywallet\nTelcell\nInecomobile 094097722\n\nBank cards\nIDbank 4318290090169661\nAmeria 4083070010083702\n\nPlease check the eSIM function of your mobile phone before purchasing it. Purchased eSIM is non-refundable."
+        return "To order, please make a payment by transferring AMD 3000 to one of our e-wallets or bank cards and send the receipt here. The transaction will not be processed without a receipt.\n\nE-wallets\nIDram 094097722\nInecomobile 094097722\n\nBank cards\nIDbank 4318290090169661\nAmeria 4083070010083702\n\nPlease check the eSIM function of your mobile phone before purchasing it. Purchased eSIM is non-refundable."
 
-def CONFIRM_ORDERS_USER_TEXT(lang, order_id):
+def CONFIRM_ORDERS_USER_TEXT(lang):
     if lang == "arm":
-        return f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է \\`\n\n`{order_id}`\n\nՄուտքագրեք այն 'Ակտիվացնել eSIM' դաշտում QR կոդ ստանալու համար:"
+        return f"Հարգելի օգտատեր Ձեր վճարումը հաստատված է: Ձեր Order ID-ն է`"
     elif lang == "rus":
-        return f"Уважаемый пользователь, ваш платеж подтвержден. Ваш Order ID:\n\n`{order_id}`\n\nВведите его в поле «Активировать eSIM», чтобы получить QR-код."
+        return f"Уважаемый пользователь, ваш платеж подтвержден. Ваш Order ID:"
     elif lang == "eng":
-        return f"Dear user, your payment has been confirmed. Your Order ID is:\n\n`{order_id}`\n\nEnter it in the 'Activate eSIM' field to receive a QR code."
+        return f"Dear user, your payment has been confirmed. Your Order ID is:"
+
+def CONFIRM_ORDERS_USER_TEXT_2(lang):
+    if lang == "arm":
+        return f"Մուտքագրեք այն 'Ակտիվացնել eSIM' դաշտում QR կոդ ստանալու համար:"
+    elif lang == "rus":
+        return f"Введите его в поле «Активировать eSIM», чтобы получить QR-код."
+    elif lang == "eng":
+        return f"Enter it in the 'Activate eSIM' field to receive a QR code."
+
 
 def BACK_TEXT(lang):
     if lang == "arm":
