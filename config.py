@@ -120,11 +120,11 @@ def BACK_BUTTON(lang):
 
 def START_BEGIN_TEXT(lang):
     if lang == "arm":
-        return "Ձեռք բեր KaLine-ի Global eSIM-ը վճարելով ընդհամենը 3500 դրամ 3 GB-ի համար և եղիր կապի մեջ աշխարհի ցանկացած կետում:"
+        return "Ձեռք բեր KaLine-ի Global eSIM-ը վճարելով ընդհամենը 3000 դրամ 3 GB-ի համար և եղիր կապի մեջ աշխարհի ցանկացած կետում:"
     elif lang == "rus":
-        return "Приобретите Global eSIM от KaLine, заплатив 3500 драмов за 3 ГБ, и оставайтесь на связи в любой точке мира."
+        return "Приобретите Global eSIM от KaLine, заплатив 3000 драмов за 3 ГБ, и оставайтесь на связи в любой точке мира."
     elif lang == "eng":
-        return "Get KaLine's Global eSIM by paying AMD 3500 for 3 GB and stay connected anywhere in the world."
+        return "Get KaLine's Global eSIM by paying AMD 3000 for 3 GB and stay connected anywhere in the world."
 
 def BUY_eSIM_TEXT(lang):
     if lang == "arm":
