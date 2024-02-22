@@ -43,7 +43,7 @@ async def start_command(message):
         else:
             lang = db.select_language(user_id)
             markup = buttons.begins_button(lang)
-            await message.answer(cfg.START_BEGIN_TEXT(lang), reply_markup=markup)
+            await message.answer_photo(photo=types.InputFile("img/photo1.jpg"), caption=cfg.START_BEGIN_TEXT(lang), reply_markup=markup)
 
 #################################### START COMMAND
 
