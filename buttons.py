@@ -7,6 +7,13 @@ def begins_button(lang):
                cfg.LIST_COUNTRIES_BUTTON(lang), cfg.CONTACT_US_BUTTON(lang), cfg.CHANGE_LANGUAGE_SETTINGS(lang))
     return markup
 
+def support_buttons(lang):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    markup.add(
+        types.InlineKeyboardButton(text=cfg.CONTACT_US_BUTTON(lang), url="https://t.me/karrrooo")
+    )
+    return markup
+
 def select_language_buttons():
     markup = types.InlineKeyboardMarkup(row_width=2)
     btn1 = types.InlineKeyboardButton(text="Հայերեն 🇦🇲", callback_data="arm_lang")

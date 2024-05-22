@@ -188,9 +188,8 @@ async def send_countries_func(message):
 async def support_send_message_func(message):
     user_id = message.from_user.id
     lang = db.select_language(user_id)
-    markup = buttons.back_button(lang)
+    markup = buttons.support_buttons(lang)
     await message.answer(cfg.SEND_TEXT_FOR_SUPPORT(lang), reply_markup=markup)
-    await SUPPORTSENDMESSAGE.support_send_message_1.set()
 
 #################################### SUPPORT SEND MESSAGE FUNC
 
